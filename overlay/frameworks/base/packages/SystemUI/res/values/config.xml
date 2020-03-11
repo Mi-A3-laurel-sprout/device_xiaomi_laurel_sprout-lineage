@@ -38,4 +38,6 @@
     -->
     <integer name="config_udfps_hbm_type">0</integer>
 
+    <!-- Unify back gesture vibration with system wide haptics -->
+    <bool name="config_vibrateOnIconAnimation">true</bool>
 </resources>
