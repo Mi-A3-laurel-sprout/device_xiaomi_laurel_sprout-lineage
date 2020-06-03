@@ -125,6 +125,10 @@ PRODUCT_PACKAGES += \
     libipanat \
     liboffloadhal
 
+# Lights
+PRODUCT_PACKAGES += \
+    android.hardware.light-service.xiaomi
+
 # Shipping API level
 PRODUCT_SHIPPING_API_LEVEL := 28
 
