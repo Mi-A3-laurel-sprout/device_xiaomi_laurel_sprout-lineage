@@ -31,6 +31,7 @@ persist.fuse_sdcard=true
 
 # LMKD
 ro.config.low_ram=false
+ro.lmk.log_stats=false
 
 # Media
 debug.stagefright.ccodec=1
