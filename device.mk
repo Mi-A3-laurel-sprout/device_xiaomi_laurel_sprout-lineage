@@ -333,6 +333,13 @@ PRODUCT_PACKAGES += \
     init.target.rc \
     ueventd.qcom.rc
 
+# Sensors
+PRODUCT_PACKAGES += \
+    android.hardware.sensors-service.xiaomi-multihal
+
+PRODUCT_PACKAGES += \
+    libsensorndkbridge
+
 # Shipping API level
 PRODUCT_SHIPPING_API_LEVEL := 28
 
