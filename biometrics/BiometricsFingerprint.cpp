@@ -43,6 +43,10 @@
 #define FOD_STATUS_ON 1
 #define FOD_STATUS_OFF -1
 
+#define FOD_DIM_PATH "/sys/devices/platform/soc/soc:qcom,dsi-display/dimlayer_hbm"
+#define FOD_DIM_ON 1
+#define FOD_DIM_OFF 0
+
 namespace android {
 namespace hardware {
 namespace biometrics {
@@ -106,6 +110,7 @@ Return<bool> BiometricsFingerprint::isUdfps(uint32_t) {
 }
 
 Return<void> BiometricsFingerprint::onFingerDown(uint32_t, uint32_t, float, float) {
+    set(FOD_DIM_PATH, FOD_DIM_ON);
     set(FOD_STATUS_PATH, FOD_STATUS_ON);
     set(DISPPARAM_PATH, DISPPARAM_HBM_FOD_ON);
     xiaomiFingerprintService->extCmd(COMMAND_NIT, PARAM_NIT_FOD);
@@ -116,6 +121,7 @@ Return<void> BiometricsFingerprint::onFingerUp() {
     xiaomiFingerprintService->extCmd(COMMAND_NIT, PARAM_NIT_NONE);
     set(DISPPARAM_PATH, DISPPARAM_HBM_FOD_OFF);
     set(FOD_STATUS_PATH, FOD_STATUS_OFF);
+    set(FOD_DIM_PATH, FOD_DIM_OFF);
     return Void();
 }
 
@@ -123,6 +129,7 @@ Return<void> BiometricsFingerprint::onHideUdfpsOverlay() {
     xiaomiFingerprintService->extCmd(COMMAND_NIT, PARAM_NIT_NONE);
     set(DISPPARAM_PATH, DISPPARAM_HBM_FOD_OFF);
     set(FOD_STATUS_PATH, FOD_STATUS_OFF);
+    set(FOD_DIM_PATH, FOD_DIM_OFF);
     return Void();
 }
 
