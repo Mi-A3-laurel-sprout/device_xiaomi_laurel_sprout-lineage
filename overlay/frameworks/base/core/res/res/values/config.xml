@@ -142,9 +142,6 @@
         <item>"/system/bin/surfaceflinger"</item>
     </string-array>
 
-    <!-- True if camera app should be pinned via Pinner Service -->
-    <bool name="config_pinnerCameraApp">true</bool>
-
     <!-- Should the pinner service pin the Home application? -->
     <bool name="config_pinnerHomeApp">true</bool>
 
@@ -156,15 +153,30 @@
     <!-- Whether device supports double tap to wake -->
     <bool name="config_supportDoubleTapWake">true</bool>
 
+    <!-- Vibrator pattern for feedback about a long screen/key press -->
+   <integer-array name="config_longPressVibePattern">
+       <item>0</item>
+       <item>12</item>
+       <item>8</item>
+   </integer-array>
+
+    <!-- Vibrator pattern for feedback about touching a virtual key -->
+   <integer-array name="config_virtualKeyVibePattern">
+       <item>0</item>
+       <item>17</item>
+       <item>13</item>
+   </integer-array>
+
+    <!-- Vibrator pattern for a very short but reliable vibration for soft keyboard tap -->
+   <integer-array name="config_keyboardTapVibePattern">
+       <item>12</item>
+   </integer-array>
     <!-- If true, the screen can be rotated via the accelerometer in all 4
          rotations as the default behavior. -->
     <bool name="config_allowAllRotations">true</bool>
 
     <!-- Whether camera shutter sound is forced or not  (country specific). -->
     <bool name="config_camera_sound_forced">false</bool>
-
-    <!-- Is the device capable of supporting digital pen
-    <bool name="config_digitalPenCapable">true</bool> -->
 
     <!-- Flag specifying whether VoLTE, VT and WFC is available on device -->
     <bool name="config_device_volte_available">true</bool>
@@ -226,10 +238,6 @@
     <!-- Whether the Unprocessed audio source supports the required frequency range and level -->
     <bool name="config_supportAudioSourceUnprocessed">true</bool>
 
-    <!-- Whether a software navigation bar should be shown. NOTE: in the future this may be
-        autodetected from the Configuration. -->
-    <!-- <bool name="config_showNavigationBar">true</bool> -->
-
     <!-- Enable overlay for all location components. -->
     <bool name="config_enableNetworkLocationOverlay" translatable="false">false</bool>
     <string name="config_networkLocationProviderPackageName" translatable="false">com.qualcomm.location</string>
@@ -238,11 +246,10 @@
     <bool name="config_dozeAfterScreenOffByDefault">true</bool>
     <!-- Screen brightness when dozing. -->
     <integer name="config_screenBrightnessDoze">17</integer>
+    <!-- 16/254 = 0.06299212598 -->
+    <item name="config_screenBrightnessDozeFloat" format="float" type="dimen">0.062992</item>
     <bool name="config_powerDecoupleInteractiveModeFromDisplay">false</bool>
     <bool name="config_setColorTransformAccelerated">true</bool>
-
-    <!-- The name of the package that will hold the dialer role by default. -->
-    <!-- <string name="config_defaultDialer" translatable="false">org.codeaurora.dialer</string> -->
 
    <!-- Operating volatage for bluetooth controller. 0 by default-->
    <integer translatable="false" name="config_bluetooth_operating_voltage_mv">3300</integer>
@@ -258,14 +265,6 @@
     <!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
     <bool name="config_intrusiveNotificationLed">true</bool>
 
-    <!-- List of biometric sensors on the device, in decreasing strength. Consumed by AuthService
-         when registering authenticators with BiometricService. Format must be ID:Modality:Strength,
-         where: IDs are unique per device, Modality as defined in BiometricAuthenticator.java,
-         and Strength as defined in Authenticators.java -->
-    <string-array name="config_biometric_sensors" translatable="false" >
-        <item>0:2:15</item> <!-- ID0:Fingerprint:Strong -->
-    </string-array>
-
     <!-- Whether to cleanup fingerprints upon connection to the daemon and when user switches -->
     <bool name="config_cleanupUnusedFingerprints">false</bool>
 
@@ -278,10 +277,47 @@
     <!-- Screen off delay --> 
     <integer name="config_screen_off_delay">0</integer>
     
+
+     <!-- Maximum screen brightness allowed by the power manager.
+         The user is forbidden from setting the brightness above this level.
+         This value is a fraction between 3.5% and 100%. -->
+    <item name="config_screenBrightnessSettingMaximumFloat" format="float" type="dimen">1.0</item>
+
+     <!-- Default screen brightness setting.
+         Must be in the range specified by minimum and maximum.
+         This value is a fraction between 3.5% and 100%.
+         Equivalent to 98/255 (default for this device)    -->
+    <item name="config_screenBrightnessSettingDefaultFloat" format="float" type="dimen">0.38188976378</item>
+    
+    <!-- Whether the always on display mode is available. -->
+    <bool name="config_dozeAlwaysOnDisplayAvailable">true</bool>
+
+    <!-- Control whether the always on display mode is enabled by default. This value will be used
+         during initialization when the setting is still null. -->
+    <bool name="config_dozeAlwaysOnEnabled">false</bool>
+
+    <!-- The properties of a UDFPS sensor in pixels, in the order listed below: -->
+    <integer-array name="config_udfps_sensor_props" translatable="false" >
+     <!--
+       <item>sensorLocationX</item>
+       <item>sensorLocationY</item>
+       <item>sensorRadius</item>
+     -->
+       <item>360</item>
+       <item>1423</item>
+       <item>67</item>
+    </integer-array>
+
+    <!-- How long it takes for the HW to start illuminating after the illumination is requested. -->
+   <integer name="config_udfps_illumination_transition_ms">0</integer>
+
     <!-- Flag indicating whether the surface flinger has limited
          alpha compositing functionality in hardware.  If set, the window
          manager will disable alpha trasformation in animations where not
          strictly needed. -->
     <bool name="config_sf_limitedAlpha">true</bool>
+
+    <!-- Determines whether the shell features all run on another thread. -->
+    <bool name="config_enableShellMainThread">true</bool>
 
 </resources>

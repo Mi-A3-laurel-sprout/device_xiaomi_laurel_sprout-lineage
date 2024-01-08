@@ -223,7 +223,7 @@ PRODUCT_COPY_FILES += \
 # Config Store
 PRODUCT_PACKAGES += \
     android.hardware.configstore@1.0-service \
-    android.hardware.configstore@1.1-service 
+    android.hardware.configstore@1.1-service
 
 # Display
 PRODUCT_PACKAGES += \
@@ -324,7 +324,7 @@ PRODUCT_PACKAGES += \
     android.hidl.base@1.0.vendor \
     android.hidl.base@1.0_system \
     android.hidl.manager@1.0
-  
+
 # HIDL VNDK
 $(foreach target, $(shell cat $(LOCAL_PATH)/configs/vndk/vndk.txt), $(eval PRODUCT_PACKAGES += $(target).vendor))
 
@@ -460,6 +460,10 @@ PRODUCT_PACKAGES += \
     android.hardware.sensors@2.1-service.multihal \
     libsensorndkbridge \
     android.hardware.sensors@2.1.vendor
+
+# Trust
+PRODUCT_PACKAGES += \
+    vendor.lineage.trust@1.0-service
 
 # Update engine
 PRODUCT_PACKAGES += \
