@@ -1,4 +1,4 @@
-# laurel_sprout package version: V12.0.15.0.RFQMIXM, unless stated otherwise
+# laurel_sprout package version: V12.0.26.0.RFQMIXM, unless stated otherwise
 
 # Audio ACDB
 vendor/etc/acdbdata/QRD/QRD_Bluetooth_cal.acdb
@@ -44,7 +44,7 @@ vendor/lib/libjpegdmahw.so
 vendor/lib/libjpegehw.so
 vendor/lib/libmialgo_sd.so
 vendor/lib/libmibokeh_660.so
-vendor/lib/libmm-qcamera.so 
+vendor/lib/libmm-qcamera.so
 vendor/lib/libmmjpeg.so
 vendor/lib/libmmqjpeg_codec.so
 vendor/lib/libmmqjpegdma.so
@@ -71,7 +71,7 @@ vendor/lib64/libsns_low_lat_stream_stub.so
 vendor/lib64/libsnsapi.so
 vendor/lib64/libsnsdiaglog.so
 vendor/lib64/libswvdec.so
-vendor/lib64/libsysmon_cdsp_skel.so 
+vendor/lib64/libsysmon_cdsp_skel.so
 
 # Camera actuator
 vendor/lib/libactuator_ad5816g.so
@@ -2835,5 +2835,5 @@ vendor/firmware/sign_xiaomi/a610_zap.mdt
 vendor/firmware/goodix_cfg_group.bin
 vendor/firmware/goodix_firmware.bin
 
-# Wlan
-vendor/firmware/wlan/qca_cld/wlan_mac.bin
+# Wlan - from RKQ1.200903.002 V12.0.26.0.RFQMIXM
+vendor/firmware/wlan/qca_cld/wlan_mac.bin|fb562b09039bb7c0893619c2f5ce524a2ef64cc4
