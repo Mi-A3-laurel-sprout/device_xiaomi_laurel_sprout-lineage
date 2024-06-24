@@ -219,6 +219,7 @@ vendor.usb.controller=4e00000.dwc3
 vendor.usb.device=4e00000.ssusb
 vendor.usb.diag.func.name=diag
 vendor.usb.use_ffs_mtp=1
+vendor.usb.use_gadget_hal=1
 sys.usb.mtp.batchcancel=1
 
 # Zygote

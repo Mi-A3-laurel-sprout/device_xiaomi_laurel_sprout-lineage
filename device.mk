@@ -254,7 +254,8 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.rc \
     init.recovery.qcom.rc \
     init.target.rc \
-    ueventd.qcom.rc
+    ueventd.qcom.rc \
+    usb_compositions.conf
 
 # Sensors
 PRODUCT_PACKAGES += \
@@ -297,6 +298,7 @@ PRODUCT_BOOT_JARS += \
 # USB
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.3-service.dual_role_usb \
+    android.hardware.usb.gadget-service.qti
 
 # Vibrator
 PRODUCT_PACKAGES += \
