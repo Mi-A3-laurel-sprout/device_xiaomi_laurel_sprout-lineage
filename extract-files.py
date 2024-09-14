@@ -57,8 +57,9 @@ blob_fixups: blob_fixups_user_type = {
         .remove_needed('libhidlbase.so')
         .replace_needed('libhidltransport.so', 'libhidlbase-v32.so'),
     ('vendor/lib/android.hardware.camera.provider@2.4-legacy.so', 'vendor/lib64/android.hardware.camera.provider@2.4-legacy.so'): blob_fixup()
-        .add_needed('libcamera_provider_shim.so')
-
+        .add_needed('libcamera_provider_shim.so'),
+    'vendor/etc/seccomp_policy/atfwd@2.0.policy': blob_fixup()
+        .add_line_if_missing('gettid: 1')
 }  # fmt: skip
 
 module = ExtractUtilsModule(
