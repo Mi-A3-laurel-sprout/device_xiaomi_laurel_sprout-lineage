@@ -59,7 +59,9 @@ blob_fixups: blob_fixups_user_type = {
     ('vendor/lib/android.hardware.camera.provider@2.4-legacy.so', 'vendor/lib64/android.hardware.camera.provider@2.4-legacy.so'): blob_fixup()
         .add_needed('libcamera_provider_shim.so'),
     'vendor/etc/seccomp_policy/atfwd@2.0.policy': blob_fixup()
-        .add_line_if_missing('gettid: 1')
+        .add_line_if_missing('gettid: 1'),
+    'vendor/lib/hw/audio.primary.laurel_sprout.so': blob_fixup()
+        .binary_regex_replace(b"vendor/lib/liba2dpoffload.so", b"liba2dpoffload_laurel_sprout.so")
 }  # fmt: skip
 
 module = ExtractUtilsModule(
