@@ -29,6 +29,9 @@ persist.dpm.feature=1
 # Fuse storage
 persist.fuse_sdcard=true
 
+# LMKD
+ro.config.low_ram=false
+
 # Media
 debug.stagefright.ccodec=1
 media.aac_51_output_enabled=true
